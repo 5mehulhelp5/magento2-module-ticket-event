@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation=" urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Blackbird\TicketBlaster\Api\Data\EventInterface" type="Blackbird\TicketBlaster\Model\Event" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="ticketblaster_event_listing_data_source" xsi:type="string">EventGridDataProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="EventGridDataProvider" type="Blackbird\TicketBlaster\Ui\DataProvider\Event\Listing\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">blackbird_ticketblaster_event</argument>
+            <argument name="resourceModel" xsi:type="string">Blackbird\TicketBlaster\Model\ResourceModel\Event</argument>
+        </arguments>
+    </virtualType>
+</config>
