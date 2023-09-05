@@ -39,13 +39,14 @@ class Event extends \Magento\Framework\Model\AbstractModel implements EventInter
      * @param \Magento\Framework\UrlInterface $urlBuilder
      * @param array $data
      */
-    function __construct(
+    public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\UrlInterface $urlBuilder,
         \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
-        array $data = [])
+        array $data = []
+    )
     {
         $this->_urlBuilder = $urlBuilder;
         parent::__construct($context, $registry, $resource, $resourceCollection, $data);
@@ -267,7 +268,7 @@ class Event extends \Magento\Framework\Model\AbstractModel implements EventInter
      */
     public function getUrl()
     {
-        return $this->_urlBuilder->getUrl('events/view/index', array('id' => $this->getId()));
+        return $this->_urlBuilder->getUrl('events/view/index', ['id' => $this->getId()]);
     }
 
     /**
@@ -279,5 +280,4 @@ class Event extends \Magento\Framework\Model\AbstractModel implements EventInter
     {
         return $this->hasData('stores') ? $this->getData('stores') : $this->getData('store_id');
     }
-
 }

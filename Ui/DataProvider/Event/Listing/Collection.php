@@ -5,6 +5,10 @@ use Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult;
 
 class Collection extends SearchResult
 {
+    public function setItems(array $items = null)
+    {
+        return $this;
+    }
     /**
      * Override _initSelect to add custom columns
      *

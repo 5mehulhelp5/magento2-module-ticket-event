@@ -9,6 +9,5 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     protected function _construct()
     {
         $this->_init('Blackbird\TicketBlaster\Model\Event', 'Blackbird\TicketBlaster\Model\ResourceModel\Event');
-        $this->_map['fields']['store'] = 'store_table.store_id';
     }
 }

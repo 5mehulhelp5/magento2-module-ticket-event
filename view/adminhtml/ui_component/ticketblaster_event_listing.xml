@@ -21,10 +21,13 @@
             <argument name="class" xsi:type="string">Blackbird\TicketBlaster\Ui\DataProvider\Event\ListingDataProvider</argument>
             <argument name="name" xsi:type="string">ticketblaster_event_listing_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">event_id</argument>
-            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">event_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">event_id</item>
+                    </item>
                 </item>
             </argument>
         </argument>
@@ -323,7 +326,6 @@
                 </item>
             </argument>
         </column>
-        <!--
         <actionsColumn name="actions" class="Blackbird\TicketBlaster\Ui\Component\Listing\Column\EventActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -333,6 +335,5 @@
                 </item>
             </argument>
         </actionsColumn>
-        -->
     </columns>
 </listing>
