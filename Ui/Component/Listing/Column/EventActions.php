@@ -51,16 +51,16 @@ class EventActions extends Column
                         'href' => $this->urlBuilder->getUrl(self::EVENT_URL_PATH_EDIT, ['event_id' => $item['event_id']]),
                         'label' => __('Edit'),
                     ];
-                    $title = $this->getEscaper()->escapeHtml($item['title']);
-                    $item[$name]['delete'] = [
-                        'href' => $this->urlBuilder->getUrl(self::EVENT_URL_PATH_DELETE, ['event_id' => $item['event_id']]),
-                        'label' => __('Delete'),
-                        'confirm' => [
-                            'title' => __('Delete %1', $title),
-                            'message' => __('Are you sure you want to delete a %1 record?', $title),
-                        ],
-                        'post' => true,
-                    ];
+//                    $title = $this->getEscaper()->escapeHtml($item['title']);
+//                    $item[$name]['delete'] = [
+//                        'href' => $this->urlBuilder->getUrl(self::EVENT_URL_PATH_DELETE, ['event_id' => $item['event_id']]),
+//                        'label' => __('Delete'),
+//                        'confirm' => [
+//                            'title' => __('Delete %1', $title),
+//                            'message' => __('Are you sure you want to delete a %1 record?', $title),
+//                        ],
+//                        'post' => true,
+//                    ];
                 }
             }
         }

@@ -17,7 +17,7 @@ class Collection extends SearchResult
     protected function _initSelect()
     {
         $this->addFilterToMap('event_id', 'main_table.event_id');
-        //$this->addFilterToMap('name', 'devgridname.value');
+        $this->addFilterToMap('title', 'main_table.title');
         parent::_initSelect();
     }
 }
