@@ -13,7 +13,6 @@ class Index implements \Magento\Framework\App\Action\HttpGetActionInterface
 
     public function execute()
     {
-        echo '<h1>Hello</h1>';
         return $this->resultPageFactory->create();
     }
 }
