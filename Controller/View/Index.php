@@ -1,5 +1,5 @@
 <?php
-namespace Blackbird\TicketBlaster\Controller\Index;
+namespace Blackbird\TicketBlaster\Controller\View;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\View\Result\PageFactory;

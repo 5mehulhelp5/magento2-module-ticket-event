@@ -1,10 +1,24 @@
 <?php
 namespace Blackbird\TicketBlaster\Block;
 
-class EventList extends \Magento\Framework\View\Element\Template
-{
-    public function getEvents()
-    {
+use Blackbird\TicketBlaster\Model\ResourceModel\Event\Collection as EventCollection;
+use Magento\Framework\View\Element\Template;
 
+class EventList extends Template
+{
+    public function __construct(
+        Template\Context $context,
+        private EventCollection $eventCollection,
+        array $data = []
+    ) {
+        parent::__construct($context, $data);
+    }
+
+    /**
+     * @return EventCollection
+     */
+    public function getEvents(): EventCollection
+    {
+        return $this->eventCollection;
     }
 }

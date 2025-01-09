@@ -1,0 +1,7 @@
+<?php /** @var $block \Blackbird\TicketBlaster\Block\EventView */ ?>
+<?php $event = $block->getEvent(); ?>
+<h1 class="ticketblaster-event-item-title"><?php echo $event->getTitle() ?></h1>
+<div class="ticketblaster-event-item-content">
+    <strong><?php echo __('Event time:') ?></strong><?php echo $event->getEventTime(); ?><br/>
+    <?php echo $event->getVenue(); ?><br/>
+</div>
