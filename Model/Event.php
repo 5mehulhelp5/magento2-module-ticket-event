@@ -3,9 +3,16 @@
 namespace Blackbird\TicketBlaster\Model;
 
 use Blackbird\TicketBlaster\Api\Data\EventInterface;
+use Blackbird\TicketBlaster\Model\ResourceModel\Event as EventResource;
 use Magento\Framework\DataObject\IdentityInterface;
+use Magento\Framework\Model\AbstractModel;
+use Magento\Framework\Model\Context;
+use Magento\Framework\Registry;
+use Magento\Framework\UrlInterface;
+use Magento\Framework\Model\ResourceModel\AbstractResource;
+use Magento\Framework\Data\Collection\AbstractDb;
 
-class Event extends \Magento\Framework\Model\AbstractModel implements EventInterface, IdentityInterface
+class Event extends AbstractModel implements EventInterface, IdentityInterface
 {
 
     /**
@@ -32,23 +39,21 @@ class Event extends \Magento\Framework\Model\AbstractModel implements EventInter
     protected $_eventPrefix = 'ticketblaster_event';
 
     /**
-     * @param \Magento\Framework\Model\Context $context
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Framework\Model\ResourceModel\AbstractResource|null $resource
-     * @param \Magento\Framework\Data\Collection\AbstractDb|null $resourceCollection
-     * @param \Magento\Framework\UrlInterface $urlBuilder
+     * @param Context $context
+     * @param Registry $registry
+     * @param AbstractResource|null $resource
+     * @param AbstractDb|null $resourceCollection
+     * @param UrlInterface $urlBuilder
      * @param array $data
      */
     public function __construct(
-        \Magento\Framework\Model\Context $context,
-        \Magento\Framework\Registry $registry,
-        \Magento\Framework\UrlInterface $urlBuilder,
-        \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
-        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
+        Context $context,
+        Registry $registry,
+        private UrlInterface $urlBuilder,
+        AbstractResource $resource = null,
+        AbstractDb $resourceCollection = null,
         array $data = []
-    )
-    {
-        $this->_urlBuilder = $urlBuilder;
+    ) {
         parent::__construct($context, $registry, $resource, $resourceCollection, $data);
     }
 
@@ -59,7 +64,7 @@ class Event extends \Magento\Framework\Model\AbstractModel implements EventInter
      */
     protected function _construct()
     {
-        $this->_init('Blackbird\TicketBlaster\Model\ResourceModel\Event');
+        $this->_init(EventResource::class);
     }
 
     /**
@@ -268,7 +273,7 @@ class Event extends \Magento\Framework\Model\AbstractModel implements EventInter
      */
     public function getUrl()
     {
-        return $this->_urlBuilder->getUrl('events/view/index', ['id' => $this->getId()]);
+        return $this->urlBuilder->getUrl('events/view/index', ['id' => $this->getId()]);
     }
 
     /**
