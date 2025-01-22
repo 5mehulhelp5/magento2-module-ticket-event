@@ -29,9 +29,9 @@ class CreateEventLinkAttribute implements DataPatchInterface
             'searchable' => false,
             'filterable' => false,
             'comparable' => false,
-            'visible_on_front' => false,
+            'visible_on_front' => true,
             'unique' => false,
-            'used_in_product_listing' => 0
+            'used_in_product_listing' => true
         ]);
 
         $eavSetup->addAttributeGroup(Product::ENTITY, 'Default', 'TicketBlaster', 2);
